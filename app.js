@@ -39,7 +39,7 @@ mongoose.connect(URI, OPTION, (error) => {
     console.log(`DB Conection Success Full ! YOur DB Name ${DB_NAME} ! And DB URI ${URI}`)
     console.log(error)
 })
-// Router Location 
+// Router Location  Setup 
 app.use("/api/v1", router)
 
 
