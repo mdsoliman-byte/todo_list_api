@@ -4,6 +4,7 @@ const router = express.Router()
 
 
 router.post("/createProfile", ProfileConmtroller.createProfile)
+router.post("/loginUser", ProfileConmtroller.loginUser)
 
 
 

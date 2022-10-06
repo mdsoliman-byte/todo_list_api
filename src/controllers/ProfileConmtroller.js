@@ -10,3 +10,23 @@ exports.createProfile = (req, res) => {
 
     })
 }
+exports.loginUser = (req, res) => {
+    const EmailAddress = req.body['EmailAddress'];
+    const Password = req.body['Password'];
+    ProfileModel.find({ EmailAddress: EmailAddress, Password: Password }, (err, data) => {
+        if (err) {
+            res.status(400).json({ status: "ERROR", data: err })
+
+        } else {
+            if (data.length > 0) {
+                res.status(200).json({ status: "SUCCESS", data: data })
+            } else {
+                res.status(401).json({ status: "Unauthorized" })
+            }
+        }
+    })
+
+
+
+
+}
