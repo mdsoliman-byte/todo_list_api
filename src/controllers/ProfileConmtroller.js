@@ -1,4 +1,5 @@
 const ProfileModel = require("../models/ProfileModel")
+const jwt = require("jsonwebtoken")
 exports.createProfile = (req, res) => {
     const reqBody = req.body;
     ProfileModel.create(reqBody, (err, data) => {
@@ -19,7 +20,13 @@ exports.loginUser = (req, res) => {
 
         } else {
             if (data.length > 0) {
-                res.status(200).json({ status: "SUCCESS", data: data })
+                const payload = {
+                    exp: Math.floor(Date.now() / 1000) + (60 * 60),
+                    data: data[0]
+                }
+                var token = jwt.sign(payload, 'shakil12345678');
+
+                res.status(200).json({ status: "SUCCESS", token: token, data: data[0] })
             } else {
                 res.status(401).json({ status: "Unauthorized" })
             }
