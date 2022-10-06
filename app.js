@@ -34,7 +34,7 @@ app.use(limit)
 // DataBase Connection 
 const DB_NAME = "TodoList"
 const URI = `mongodb://localhost:27017/${DB_NAME}`;
-const OPTION = { user: "", pass: "" };
+const OPTION = { user: "", pass: "" , autoIndex: true};
 mongoose.connect(URI, OPTION, (error) => {
     console.log(`DB Conection Success Full ! YOur DB Name ${DB_NAME} ! And DB URI ${URI}`)
     console.log(error)

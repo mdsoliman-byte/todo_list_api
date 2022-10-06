@@ -7,12 +7,12 @@ const dataSchema = mongoose.Schema({
     EmailAddress: { type: String },
     MobileNumber: { type: String },
     City: { type: String },
-    UserName: { type: String },
+    UserName: { type: String , unique: true },
     Password: { type: String },
 
 }, { versionKye: false })
 
-const profileModel = mongoose.model("profile", dataSchema);
+const profileModel = mongoose.model("profiles", dataSchema);
 
 
 module.exports = profileModel;
