@@ -5,6 +5,8 @@ module.exports = (req, res, next) => {
         if (err) {
             res.status(401).json({ status: "Unauthorized", data: err })
         } else {
+            const EmailAddress = decodeData["data"]["EmailAddress"];
+            req.headers.EmailAddress = EmailAddress;
             next()
         }
     })

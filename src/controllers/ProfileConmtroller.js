@@ -39,8 +39,8 @@ exports.loginUser = (req, res) => {
 
 }
 exports.selectUser = (req, res) => {
-    const EmailAddress = req.params["useremail"];
-    ProfileModel.find({ EmailAddress: EmailAddress }, (err, data) => {
+    const EmailAddress = req.headers["EmailAddress"];
+    ProfileModel.find({ EmailAddress: EmailAddress }, { Password: 0, _id: 0 }, (err, data) => {
         if (err) {
             res.status(400).json({ status: "ERROR", data: err })
         } else {
