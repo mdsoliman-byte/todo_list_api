@@ -20,6 +20,7 @@ exports.loginUser = (req, res) => {
 
         } else {
             if (data.length > 0) {
+                // Create User Auth Json Web Token  Token 
                 const payload = {
                     exp: Math.floor(Date.now() / 1000) + (60 * 60),
                     data: data[0]
