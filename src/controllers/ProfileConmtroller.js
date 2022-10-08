@@ -38,3 +38,13 @@ exports.loginUser = (req, res) => {
 
 
 }
+exports.selectUser = (req, res) => {
+    const EmailAddress = req.params["useremail"];
+    ProfileModel.find({ EmailAddress: EmailAddress }, (err, data) => {
+        if (err) {
+            res.status(400).json({ status: "ERROR", data: err })
+        } else {
+            res.status(200).json({ status: "SUCCESS", data: data })
+        }
+    })
+}
