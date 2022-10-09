@@ -34,9 +34,6 @@ exports.loginUser = (req, res) => {
         }
     })
 
-
-
-
 }
 exports.selectUser = (req, res) => {
     const EmailAddress = req.headers["EmailAddress"];
@@ -47,4 +44,17 @@ exports.selectUser = (req, res) => {
             res.status(200).json({ status: "SUCCESS", data: data })
         }
     })
+}
+exports.updateProfile = (req, res) => {
+    const EmailAddress = req.headers["EmailAddress"];
+    const reqBody = req.body;
+    ProfileModel.updateOne({ EmailAddress: EmailAddress }, { $set: reqBody }, { upsert: true }, (err, data) => {
+        if (err) {
+            res.status(404).json({ status: "Fail ", data: err })
+        } else {
+            res.status(200).json({ status: "Data Update Success Full ", data: data })
+        }
+    })
+
+
 }
