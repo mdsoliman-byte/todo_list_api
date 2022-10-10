@@ -11,6 +11,7 @@ exports.createProfile = (req, res) => {
 
     })
 }
+// Login  User 
 exports.loginUser = (req, res) => {
     const EmailAddress = req.body['EmailAddress'];
     const Password = req.body['Password'];
@@ -33,8 +34,8 @@ exports.loginUser = (req, res) => {
             }
         }
     })
-
 }
+// Select Single user 
 exports.selectUser = (req, res) => {
     const EmailAddress = req.headers["EmailAddress"];
     ProfileModel.find({ EmailAddress: EmailAddress }, { Password: 0, _id: 0 }, (err, data) => {
@@ -45,6 +46,7 @@ exports.selectUser = (req, res) => {
         }
     })
 }
+// Update User 
 exports.updateProfile = (req, res) => {
     const EmailAddress = req.headers["EmailAddress"];
     const reqBody = req.body;
