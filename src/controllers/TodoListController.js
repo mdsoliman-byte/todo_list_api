@@ -23,3 +23,14 @@ exports.createTodo = (req, res) => {
         }
     })
 }
+exports.findTodo = (req, res) => {
+    const EmailAddress = req.headers["EmailAddress"]
+    TodoModel.find({ EmailAddress: EmailAddress }, (err, data) => {
+        if (err) {
+            res.status(400).json({ status: "Sorry We Cannot Your data ", data: err })
+        } else {
+            res.status(200).json({ status: "Success ", data: data })
+        }
+    })
+
+}
