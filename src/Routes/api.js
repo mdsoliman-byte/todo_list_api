@@ -12,6 +12,7 @@ router.get("/selectUser", AuthVerifyMiddleware, ProfileConmtroller.selectUser)
 router.post("/updateProfile", AuthVerifyMiddleware, ProfileConmtroller.updateProfile)
 router.post("/createTodo", AuthVerifyMiddleware, TodoListController.createTodo)
 router.get("/findTodo", AuthVerifyMiddleware, TodoListController.findTodo)
+router.post("/updateTodo", AuthVerifyMiddleware, TodoListController.updateTodo)
 
 
 

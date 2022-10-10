@@ -34,3 +34,22 @@ exports.findTodo = (req, res) => {
     })
 
 }
+exports.updateTodo = (req, res) => {
+    const TodoSubject = req.body["TodoSubject"]
+    const TodoDescription = req.body["TodoDescription"]
+    const _id = req.body["_id"]
+    const TodoUpdateData = Date.now()
+    const updateBody = {
+        TodoSubject: TodoSubject,
+        TodoDescription: TodoDescription,
+        TodoUpdateData: TodoUpdateData,
+    }
+    TodoModel.updateOne({ _id: _id }, { $set: updateBody }, { upsert: true }, (err, data) => {
+        if (err) {
+            res.status(400).json({ status: "Sorry We Cannot Update Your Data  ", data: err })
+        } else {
+            res.status(200).json({ status: " Data Updated Success Full  ", data: data })
+        }
+    })
+
+}
