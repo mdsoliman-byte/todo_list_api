@@ -53,3 +53,21 @@ exports.updateTodo = (req, res) => {
     })
 
 }
+exports.updateTodoStatus = (req, res) => {
+    const _id = req.body["_id"];
+    const TodoStatus = req.body["TodoStatus"]
+    const TodoUpdateData = Date.now();
+    const statousBody = {
+        TodoStatus: TodoStatus,
+        TodoUpdateData: TodoUpdateData
+
+    }
+    TodoModel.updateOne({ _id: _id }, { $set: statousBody }, { upsert: true }, (err, data) => {
+        if (err) {
+            res.status(404).json({ status: "Todo Update  Status  Fail ", data: err })
+        } else {
+            res.status(200).json({ status: "Todo Update  Status  Sussess Full ", data: data })
+        }
+    })
+
+}
