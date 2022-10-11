@@ -14,6 +14,7 @@ router.post("/createTodo", AuthVerifyMiddleware, TodoListController.createTodo)
 router.get("/findTodo", AuthVerifyMiddleware, TodoListController.findTodo)
 router.post("/updateTodo", AuthVerifyMiddleware, TodoListController.updateTodo)
 router.post("/updateTodoStatus", AuthVerifyMiddleware, TodoListController.updateTodoStatus)
+router.post("/removeTodo", AuthVerifyMiddleware, TodoListController.removeTodo)
 
 
 

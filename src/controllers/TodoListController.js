@@ -71,3 +71,13 @@ exports.updateTodoStatus = (req, res) => {
     })
 
 }
+exports.removeTodo = (req, res) => {
+    const _id = req.body["_id"];
+    TodoModel.remove({ _id: _id }, (err, data) => {
+        if (err) {
+            res.status(404).json({ status: "We Cannot Remove Your Data ", data: err })
+        } else {
+            res.status(200).json({ status: "YOur Data Remove Success Full ", data: data })
+        }
+    })
+}
