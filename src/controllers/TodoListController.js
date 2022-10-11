@@ -81,3 +81,16 @@ exports.removeTodo = (req, res) => {
         }
     })
 }
+exports.todoStatusFilter = (req, res) => {
+    const EmailAddress = req.headers["EmailAddress"]
+    const TodoStatus = req.body["TodoStatus"];
+    TodoModel.find({ EmailAddress: EmailAddress, TodoStatus: TodoStatus }, (err, data) => {
+        if (err) {
+            res.status(404).json({ status: "We Cannot Filter Your Status", data: err })
+        } else {
+            res.status(200).json({ status: "Status Filter Success Full ", data: data })
+        }
+    })
+
+
+}
