@@ -94,3 +94,16 @@ exports.todoStatusFilter = (req, res) => {
 
 
 }
+exports.todoFilterindate = (req, res) => {
+    const EmailAddress = req.headers["EmailAddress"]
+    const fromDate = req.body["fromDate"];
+    const todate = req.body["toDate"];
+    TodoModel.find({ EmailAddress: EmailAddress, TodoCreateData: { $gte: new Date(fromDate), $lte: new Date(todate) } }, (err, data) => {
+        if (err) {
+            res.status(404).json({ status: "Filter Data Fail ", data: err })
+        } else {
+            res.status(200).json({ status: "Data Filter Success Full", data: data })
+        }
+    })
+
+}
