@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "bf00fe2b-9a3e-480e-b7d5-4504af7701ea",
+		"name": "TODO_LIST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17414554"
+	},
+	"item": [
+		{
+			"name": "LogIn Registration",
+			"item": [
+				{
+					"name": "createProfile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"Md\",\r\n    \"LastName\": \"Shakikl\",\r\n    \"EmailAddress\": \"contact.nayeem@gmail.com\",\r\n    \"MobileNumber\": \"01721900392\",\r\n    \"City\": \"Dhaki\",\r\n    \"UserName\": \"nayeem\",\r\n    \"Password\": \"12181799\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/createProfile",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"createProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"EmailAddress\":\"contact.mdsshakil@gmail.com\",\r\n    \"Password\":\"12181799\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/loginUser",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"loginUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Profile",
+			"item": [
+				{
+					"name": "updateProfile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"Md\",\r\n    \"LastName\": \"Shakikl Ahmed noyon \",\r\n    \"EmailAddress\": \"contact.nayeem@gmail.com\",\r\n    \"MobileNumber\": \"01721900392\",\r\n    \"City\": \"Dhaka Bangaladesh \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/updateProfile",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"updateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selectUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/selectUser",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"selectUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ToDo LIst",
+			"item": [
+				{
+					"name": "createTodo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TodoSubject\": \"Hello I(m firsdt todo \",\r\n    \"TodoDescription\": \"hello im TodoDescription hello \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/createTodo",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"createTodo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findTodo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/findTodo",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"findTodo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTodo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TodoSubject\": \"Hello Im new DSata \",\r\n    \"TodoDescription\": \"Hello im new TodoDescription\",\r\n    \"_id\": \"6344952b961808a40056fcda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/updateTodo",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"updateTodo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "todoFilterindate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromDate\":\"2022-10-11\",\r\n    \"toDate\":\"2022-10-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/todoFilterindate",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todoFilterindate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeTodo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"6344952b961808a40056fcda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/removeTodo",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"removeTodo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTodoStatus",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TodoStatus\": \"Complite\",\r\n    \"_id\":\"6345a9941dabdde50eff30b9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/updateTodoStatus",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"updateTodoStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "todoStatusFilter",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token_kye",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TodoStatus\": \"Complite\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/todoStatusFilter",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todoStatusFilter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "http://localhost:4000/api/v1/",
+			"type": "string"
+		},
+		{
+			"key": "Token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjU1NTMwMzEsImRhdGEiOnsiX2lkIjoiNjMzZjNlOWY5YTZlYWU5NjNhYjkyYmM1IiwiRmlyc3ROYW1lIjoiTWQiLCJMYXN0TmFtZSI6IlNoYWtpa2wiLCJFbWFpbEFkZHJlc3MiOiJjb250YWN0Lm1kc3NoYWtpbEBnbWFpbC5jb20iLCJNb2JpbGVOdW1iZXIiOiIwMTUzODA4ODI2MiIsIkNpdHkiOiJEaGFraSIsIlVzZXJOYW1lIjoibWRzaGFraWwiLCJQYXNzd29yZCI6IjEyMTgxNzk5IiwiX192IjowfSwiaWF0IjoxNjY1NTQ5NDMxfQ.datQXw82p3TQbIqbh4hlVtvAwA-ji-PvUaXjLWS26Wk",
+			"type": "string"
+		}
+	]
+}
